@@ -1,4 +1,4 @@
-# This file aims at split train.json into multiple smaller files
+# This file aims to split train.json into multiple smaller files
 import json
 
 with open('data/SQuAD/train-v2.0.json') as f:
