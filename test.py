@@ -1,10 +1,10 @@
 import json
 
 # for visualization
-with open('data/SQuAD/splited/toy.json', 'r') as file:
-    data = file.read()
-obj = json.loads(data)
-json.dump(obj, open('data/SQuAD/splited/toy.json', 'w'), indent=2)
+# with open('data/SQuAD/splited/toy.json', 'r') as file:
+#     data = file.read()
+# obj = json.loads(data)
+# json.dump(obj, open('data/SQuAD/splited/toy.json', 'w'), indent=2)
 
 
 # for generating toy example data
@@ -24,3 +24,20 @@ json.dump(obj, open('data/SQuAD/splited/toy.json', 'w'), indent=2)
 #     data0['paragraphs'].append(data1)
 #     data['data'].append(data0)
 #     json.dump(data, outfile)
+
+# count questions
+with open('data/SQuAD/train-v2.0.json', 'r') as file:
+    data = json.load(file)
+    count = 0
+    for article in data['data']:
+        for paragraph in article['paragraphs']:
+            count += len(paragraph['qas'])
+    print(count)
+
+with open('data/SQuAD/train-v2.0_augmented.json', 'r') as file:
+    data = json.load(file)
+    count = 0
+    for article in data['data']:
+        for paragraph in article['paragraphs']:
+            count += len(paragraph['qas'])
+    print(count)
